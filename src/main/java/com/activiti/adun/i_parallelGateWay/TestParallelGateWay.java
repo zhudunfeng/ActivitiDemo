@@ -103,14 +103,29 @@ public class TestParallelGateWay {
 		TaskService taskService = this.processEngine.getTaskService();
 //		Task task = taskService.createTaskQuery().taskName("收货").singleResult();
 //		String taskId =task.getId();
-//		String taskId = "2510";//（1）卖家发货
+		String taskId = "2510";//（1）卖家发货
 //		String taskId = "5002";//（1）买家收货
 //		String taskId = "2507";//（1）买家付款
-		String taskId = "10002";//（1）卖家收款
+//		String taskId = "10002";//（1）卖家收款
 
 		// 根据任务ID去完成任务
 		taskService.complete(taskId);
 		// 根据任务ID去完成任务并指定流程变量
 		System.out.println("任务完成");
+	}
+
+
+	/**
+	 * 查询任务创建时间
+	 */
+	@Test
+	public void getCreateTime(){
+		TaskService taskService = this.processEngine.getTaskService();
+		String taskId="2507";
+		Task task = taskService.createTaskQuery().taskId(taskId).singleResult();
+		System.out.println(task.getCreateTime().getTime());
+		String taskId1="2510";
+		Task task1 = taskService.createTaskQuery().taskId(taskId1).singleResult();
+		System.out.println(task1.getCreateTime().getTime());
 	}
 }

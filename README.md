@@ -21,22 +21,22 @@ Activiti数据库支持：
 	ACT_HI_*: 'HI'表示history。 这些表包含历史数据，比如历史流程实例， 变量，任务等等。
 	ACT_GE_*: 通用数据， 用于不同场景下，如存放资源文件。
 	1：资源库流程规则表
-		1) act_re_deployment 部署信息表
-		2) act_re_model 流程设计模型部署表
-		3) act_re_procdef 流程定义数据表
+		1) act_re_deployment 部署信息表【部署流程后会生成相应的流程信息】
+		2) act_re_model 流程设计模型部署表【自定义流程会使用到此表】
+		3) act_re_procdef 流程定义数据表【部署流程后会生成相应的流程信息】
 	2：运行时数据库表
-		1) act_ru_execution 运行时流程执行实例表
+		1) act_ru_execution 运行时流程执行实例表【流程启动后会会在此表保存流程实例与执行实例，并行流程会有细微的差别】
 		2) act_ru_identitylink 运行时流程人员表，主要存储任务节点与参与者的相关信息
-		3) act_ru_task 运行时任务节点表
+		3) act_ru_task 运行时任务节点表【流程启动后会在此表保存待办的信息】
 		4) act_ru_variable 运行时流程变量数据表
 	3：历史数据库表
-		1) act_hi_actinst 历史节点表
+		1) act_hi_actinst 历史节点表【历史的活动节点】
 		2) act_hi_attachment 历史附件表
 		3) act_hi_comment 历史意见表
 		4) act_hi_identitylink 历史流程人员表
 		5) act_hi_detail 历史详情表，提供历史变量的查询
 		6) act_hi_procinst 历史流程实例表
-		7) act_hi_taskinst 历史任务实例表
+		7) act_hi_taskinst 历史任务实例表【完成的任务与下一个将要完成的任务】
 		8) act_hi_varinst 历史变量表
 	4：组织机构表
 		1) act_id_group 用户组信息表
